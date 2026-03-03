@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-navy: #001F3F;
+  --color-fend: #A39382;
+  --color-fend-light: #D6CFC7;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-navy bg-white;
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-lg;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
