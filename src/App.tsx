@@ -19,6 +19,8 @@ import {
   Brain
 } from 'lucide-react';
 
+import sentrixImg from './Assets/Images/Sentrix.png';
+
 // --- Types ---
 interface Pillar {
   id: number;
@@ -46,45 +48,20 @@ const Navbar = ({ onOpenContact }: { onOpenContact: () => void }) => {
         <div className="flex items-center gap-2">
           <span className="text-2xl font-bold tracking-tighter text-navy">TAQNA</span>
           <div className="h-4 w-[1px] bg-fend mx-2"></div>
-          <span className="text-xs sm:text-sm uppercase tracking-[0.05em] text-fend font-semibold">
-  Inteligência e Governança em Saúde
+          <span className="text-xs sm:text-sm uppercase tracking-[0.05em] text-fend-dark font-semibold">
+  Operational Intelligence - Healthcare
 </span>
         </div>
 
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a href="#ferramentas" className="hover:text-fend transition-colors">Gestão com IA</a>
-          <a href="#instituto" className="hover:text-fend transition-colors">Instituto</a>
+        <div className="flex items-center gap-8 text-sm font-medium">
           <button 
             onClick={onOpenContact}
-            className="bg-navy text-white px-5 py-2 rounded-full hover:bg-fend transition-all text-xs uppercase tracking-widest"
+            className="bg-navy text-white px-3 py-1.5 sm:px-5 sm:py-2 rounded-full hover:bg-fend transition-all text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest font-semibold"
           >
-            Quero saber mais
+            Saiba mais
           </button>
         </div>
-
-        <button className="md:hidden text-navy" onClick={() => setIsMobileMenuOpen(true)}>
-          <Menu size={24} />
-        </button>
       </div>
-
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 bg-white z-[60] p-8 flex flex-col"
-          >
-            <div className="flex justify-end">
-              <button onClick={() => setIsMobileMenuOpen(false)}><X size={32} /></button>
-            </div>
-            <div className="flex flex-col gap-8 mt-12 text-2xl font-light">
-              <a href="#ferramentas" onClick={() => setIsMobileMenuOpen(false)}>Gestão com IA</a>
-              <a href="#instituto" onClick={() => setIsMobileMenuOpen(false)}>Instituto</a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </nav>
   );
 };
@@ -93,14 +70,14 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
   const pillars: Pillar[] = [
     { 
   id: 1, 
-  title: "Qualificação & Autonomia para equipes de saúde",
+  title: "Sem jamais substituir o julgamento do profissional de Saúde",
   description: "",
   icon: <ShieldCheck className="text-fend" size={36} />,
   details: ["Mapeamento de Riscos", "Diagnóstico Situacional", "Adequação Regulatória"]
 },
     { 
       id: 2, 
-      title: "Ferramentas técnicas de gestão, impulsionadas por Inteligência Artificial", 
+      title: "Software Operacional Técnico, impulsionado por Inteligência Artificial", 
       description: "",
       icon: <Cpu className="text-fend" size={36} />,
       details: ["Provas Técnicas", "Onboarding Digital", "Mapas de Risco"]
@@ -108,7 +85,7 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex flex-col justify-center pt-20 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex flex-col justify-center pt-36 md:pt-20 overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -127,19 +104,17 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-7xl font-light text-navy leading-[1.1] mb-8 text-balance">
-              Onde a ordem técnica encontra o <span className="font-bold">propósito humano.</span>
+            <h1 className="text-2xl md:text-4xl font-light text-navy/90 leading-relaxed tracking-tight mb-8">
+              <span className="font-bold">SaaS</span> potencializado com <span className="font-bold">IA</span> que transforma a comunicação crítica na linha de frente hospitalar, hoje existente em planilhas e grupos de WhatsApp, em <span className="font-bold">informações e decisões registradas, priorizadas e visíveis.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-navy/90 font-normal max-w-xl mb-10 leading-relaxed">
-  Atuamos como parceiro estratégico que viabiliza autonomia para sua instituição, na busca pela segurança e melhoria contínua dos processos.
-</p>
+
             <div className="flex flex-wrap gap-4">
               <button 
                 onClick={onOpenContact}
-                className="bg-navy text-white px-8 py-4 rounded-full flex items-center gap-2 hover:bg-fend transition-all group shadow-xl shadow-navy/10"
+                className="bg-navy text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm font-medium rounded-full flex items-center gap-2 hover:bg-fend transition-all group shadow-lg shadow-navy/10"
               >
                 Nosso método
-                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </motion.div>
@@ -148,14 +123,14 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:-translate-y-12"
           >
             {pillars.map((pillar, idx) => (
               <div key={pillar.id} className="p-6 rounded-2xl bg-white border border-navy/5 shadow-sm hover:shadow-md transition-all group">
                 <div className="mb-4 p-3 rounded-xl bg-navy/5 w-fit group-hover:bg-fend/10 transition-colors">
                   {pillar.icon}
                 </div>
-                <h3 className="text-2xl font-light tracking-tight mb-3 text-navy/90 leading-tight">{pillar.title}</h3>
+                <h3 className={`text-2xl tracking-tight mb-3 leading-tight font-medium ${pillar.id === 1 ? 'text-fend-dark' : 'text-navy/90'}`}>{pillar.title}</h3>
                 <p className="text-sm text-navy/60 font-light leading-snug">
                   {pillar.description}
                 </p>
@@ -193,41 +168,25 @@ const StatsSection = () => {
             <h2 className="text-3xl md:text-4xl font-light mb-12 leading-tight">
               Excelência em saúde não é apenas um valor ético, é um <span className="font-bold italic">diferencial competitivo.</span>
             </h2>
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="mt-1 p-1 bg-fend rounded-full"><CheckCircle2 size={16} /></div>
-                <div>
-                  <p className="font-bold text-xl">Redução de 30% em desperdícios</p>
-                  <p className="text-sm text-white/60">Através da otimização de processos e redução de erros evitáveis.</p>
-                </div>
+          </div>
+          
+          <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
+                <Users className="text-fend mb-4" size={32} />
+                <p className="text-4xl font-bold mb-2">80%</p>
+                <p className="text-xs uppercase tracking-widest text-white/50 leading-relaxed">dos erros médicos graves vêm da falha de comunicação no plantão</p>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="mt-1 p-1 bg-fend rounded-full"><CheckCircle2 size={16} /></div>
-                <div>
-                  <p className="font-bold text-xl">ROI de até 4:1 em programas de qualidade</p>
-                  <p className="text-sm text-white/60">
-                    Dados baseados em estudos de eficiência hospitalar
-                  </p>
-                </div>
+              <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm sm:mt-12">
+                <Activity className="text-fend mb-4" size={32} />
+                <p className="text-4xl font-bold mb-2">65%</p>
+                <p className="text-xs uppercase tracking-widest text-white/50 leading-relaxed">dos eventos adversos têm a falha de comunicação como causa raiz.</p>
               </div>
             </div>
-            <div className="mt-10 pt-4 border-t border-white/5">
+            <div className="text-left sm:text-right px-2">
               <span className="text-[10px] opacity-50 uppercase tracking-widest font-semibold block">
                 (Fonte: IHI - Institute for Healthcare Improvement)
               </span>
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
-              <Users className="text-fend mb-4" size={32} />
-              <p className="text-4xl font-bold mb-2">92%</p>
-              <p className="text-xs uppercase tracking-widest text-white/50">Retenção de Talentos</p>
-            </div>
-            <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm sm:mt-12">
-              <Activity className="text-fend mb-4" size={32} />
-              <p className="text-4xl font-bold mb-2">24/7</p>
-              <p className="text-xs uppercase tracking-widest text-white/50">Monitoramento de Riscos</p>
             </div>
           </div>
         </div>
@@ -254,24 +213,52 @@ const PillarsDetail = () => {
                     <Sparkles size={14} className="text-fend" />
                     <span className="text-[10px] uppercase tracking-widest font-bold">Inovação Tecnológica</span>
                   </div>
-                  <h3 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                    Ferramentas de <span className="text-fend">Gestão com IA</span>
+                  <h3 className="text-2xl md:text-3xl font-medium mb-6 leading-tight">
+                    Um <span className="text-fend font-semibold">Sistema completo e inovador</span> para a camada de <span className="text-fend font-semibold">Operação Assistencial</span> que captura, organiza, prioriza e dá visibilidade gerencial às informações na linha de frente do Hospital.
                   </h3>
-                  <p className="text-white/70 mb-8 leading-relaxed text-xl font-light">
-                    Tornamos o conhecimento e a inteligência artificial acessíveis para impulsionar qualidade e segurança na saúde.
-                  </p>
                   
                  </div>
                 
-                <div className="flex-1 relative hidden md:block">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transform hover:-translate-y-1 transition-transform">
-                      <Cpu className="text-fend mb-3" size={24} />
-                      <p className="text-[10px] font-bold uppercase tracking-[0.15em] opacity-70">Agilidade Analítica</p>
+                <div className="w-full md:flex-1 flex flex-col gap-4">
+                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transform hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-start gap-4">
+                      <div className="p-2.5 rounded-xl bg-fend/10 text-fend mt-0.5">
+                        <Users size={20} />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-extrabold tracking-widest text-fend uppercase mb-1.5">SENTRIX</h4>
+                        <p className="text-base md:text-lg text-white/90 font-light leading-relaxed">
+                          Safety Huddle estruturado, passagem de plantão e áreas de apoio.
+                        </p>
+                      </div>
                     </div>
-                    <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transform hover:-translate-y-1 transition-transform">
-                      <ShieldCheck className="text-fend mb-3" size={24} />
-                      <p className="text-[10px] font-bold uppercase tracking-[0.15em] opacity-70">Segurança & Integridade</p>
+                  </div>
+                  
+                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transform hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-start gap-4">
+                      <div className="p-2.5 rounded-xl bg-fend/10 text-fend mt-0.5">
+                        <Activity size={20} />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-extrabold tracking-widest text-fend uppercase mb-1.5">VISUS</h4>
+                        <p className="text-base md:text-lg text-white/90 font-light leading-relaxed">
+                          Cenários de turno, gargalos, desvios de protocolo e picos de demanda.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transform hover:-translate-y-1 transition-all duration-300">
+                    <div className="flex items-start gap-4">
+                      <div className="p-2.5 rounded-xl bg-fend/10 text-fend mt-0.5">
+                        <Brain size={20} />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-extrabold tracking-widest text-fend uppercase mb-1.5">ARIS</h4>
+                        <p className="text-base md:text-lg text-white/90 font-light leading-relaxed">
+                          Padrões, score de performance, prova técnica e protocolos personalizados.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -284,57 +271,26 @@ const PillarsDetail = () => {
           {/* Pillar 1 */}
           <div className="lg:col-span-2 group">
             <div className="relative h-full overflow-hidden rounded-3xl bg-navy p-12 text-white min-h-[400px] flex items-center">
-              <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 group-hover:scale-110 transition-transform duration-700">
-                <img 
-                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800&h=800" 
-                  className="w-full h-full object-cover"
-                  alt="Modern Operating Room"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
               <div className="relative z-10 max-w-2xl">
-                <h3 className="text-3xl md:text-4xl font-bold mb-6">Inteligência Operacional & Conformidade</h3>
-                <p className="text-white/80 mb-8 leading-relaxed text-xl">
-                  Ciclos estratégicos de 3 a 6 meses, com foco em resultados concretos. Mapeamos riscos e estruturamos diagnósticos para ações imediatas.
+                <h3 className="text-3xl md:text-4xl font-bold mb-6">Inteligência Operacional</h3>
+                <p className="text-white/80 mb-8 leading-relaxed text-lg md:text-xl">
+                  Até agora, a camada mais crítica da Operação Hospitalar Assistencial como <strong className="font-semibold text-white">Safety Huddle, passagem de plantão e decisões coletivas</strong> não dispunham de um sistema inteligente para auxiliá-la. A TAQNA chegou para suprir essa demanda com excelência, <strong className="font-semibold text-white">através do celular dos usuários</strong>. Uma ferramenta simples, segura e eficiente, disponível a todo momento na palma da mão dos profissionais e no <strong className="font-semibold text-white">dashboard gerencial</strong>.
                 </p>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <ul className="space-y-4">
-                    <li className="flex items-center gap-4 text-xl font-light">
-                      <div className="w-1.5 h-1.5 rounded-full bg-fend"></div>
-                      Gestão inteligente de riscos
-                    </li>
-                  </ul>
-                  <ul className="space-y-4">
-                    <li className="flex items-center gap-4 text-xl font-light">
-                      <div className="w-1.5 h-1.5 rounded-full bg-fend"></div>
-                      Conformidade Regulatória
-                    </li>
-                  </ul>
-                </div>
+
               </div>
             </div>
           </div>
 
           {/* Pillar 4 */}
           <div id="instituto" className="group">
-            <div className="h-full rounded-3xl bg-fend p-10 flex flex-col justify-between text-navy">
-              <div>
-                <h3 className="text-2xl font-bold mb-4">Instituto Taqna</h3>
-                <p className="text-navy/80 text-sm leading-relaxed mb-6">
-                  Nossa essência é trazer valor para a sociedade. Parte do nosso faturamento é destinado a doações para instituições e projetos sociais.
-                </p>
-              </div>
-              <div className="relative aspect-square rounded-2xl overflow-hidden mt-4">
-                <img 
-                  src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&q=80&w=600&h=600" 
-                  className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
-                  alt="People Walking - Instituto Taqna"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 flex items-start justify-center p-6 pt-12 text-center">
-                  <p className="text-xs font-bold uppercase tracking-[0.1em] text-navy">Transformando técnica em cuidado humano</p>
-                </div>
-              </div>
+            <div className="relative h-full min-h-[400px] rounded-3xl overflow-hidden shadow-xl shadow-navy/5">
+              <img 
+                src={sentrixImg} 
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                alt="Médicos em plantão"
+                referrerPolicy="no-referrer"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent group-hover:from-navy/20 transition-colors duration-500" />
             </div>
           </div>
         </div>
@@ -345,9 +301,8 @@ const PillarsDetail = () => {
 
 const FAQSection = ({ onOpenContact }: { onOpenContact: () => void }) => {
   const questions = [
-    "Ainda não temos uma área de qualidade formalizada, mas queremos evoluir nosso time.",
-    "Nossa equipe é assistencial, porém queremos ampliar a competência em gestão e governança.",
-    "Sua instituição recebeu uma notificação regulatória e precisa organizar seus processos assistenciais?",
+    "Nossa equipe de Operação Assistencial utiliza anotações manuais, planilhas e whatsapp no controle das atividades",
+    "Gostaríamos de tornar as prioridades, pendências e resoluções da camada assistencial, visível para a equipe gerencial.",
     "Desejo que minha equipe seja protagonista na condução da melhoria contínua."
   ];
 
@@ -367,7 +322,7 @@ const FAQSection = ({ onOpenContact }: { onOpenContact: () => void }) => {
               Sua instituição se identifica com algum desses <span className="font-bold">desafios?</span>
             </h2>
             <p className="text-lg text-navy/60 mb-10 font-light max-w-md">
-              A TAQNA transforma dores em oportunidades de crescimento através de governança e autonomia técnica.
+              Através da tecnologia e governança, a TAQNA entrega a seus clientes aumento de eficiência e receita.
             </p>
             <button 
               onClick={onOpenContact}
@@ -402,7 +357,119 @@ const FAQSection = ({ onOpenContact }: { onOpenContact: () => void }) => {
   );
 };
 
+const DocumentModal = ({ 
+  isOpen, 
+  onClose, 
+  title, 
+  content 
+}: { 
+  isOpen: boolean; 
+  onClose: () => void; 
+  title: string; 
+  content: React.ReactNode; 
+}) => {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="absolute inset-0 bg-navy/60 backdrop-blur-sm"
+          />
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            className="relative bg-white rounded-3xl p-8 md:p-10 max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col shadow-2xl"
+          >
+            <button 
+              onClick={onClose}
+              className="absolute top-6 right-6 text-navy/40 hover:text-navy transition-colors z-10"
+            >
+              <X size={24} />
+            </button>
+            <h3 className="text-2xl font-bold text-navy mb-6 pr-8">{title}</h3>
+            <div className="text-navy/70 space-y-4 font-light text-sm leading-relaxed overflow-y-auto pr-2">
+              {content}
+            </div>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+};
+
 const Footer = () => {
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
+  const [isTermsOpen, setIsTermsOpen] = useState(false);
+
+  const privacyContent = (
+    <>
+      <p>
+        A TAQNA valoriza a privacidade de seus usuários e clientes. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais ao utilizar nosso site e serviços.
+      </p>
+      <div>
+        <h4 className="font-bold text-navy mb-1">1. Coleta de Informações</h4>
+        <p>Coletamos informações fornecidas voluntariamente por você ao preencher nosso formulário de contato, tais como nome, e-mail corporativo e instituição de saúde.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-navy mb-1">2. Uso dos Dados</h4>
+        <p>Os dados coletados são utilizados exclusivamente para responder às suas solicitações de contato, apresentar nossas soluções de tecnologia e governança, e enviar comunicações relevantes sobre nossos serviços.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-navy mb-1">3. Compartilhamento</h4>
+        <p>Não compartilhamos, vendemos ou alugamos suas informações pessoais para terceiros sob nenhuma circunstância, exceto quando exigido por lei ou autoridade competente.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-navy mb-1">4. Segurança</h4>
+        <p>Adotamos medidas de segurança administrativas e técnicas compatíveis com as melhores práticas de mercado e com a LGPD (Lei Geral de Proteção de Dados) para proteger suas informações contra acessos não autorizados.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-navy mb-1">5. Seus Direitos</h4>
+        <p>Você possui o direito de solicitar a confirmação do tratamento de seus dados, o acesso aos mesmos, a correção de dados incompletos ou inexatos, ou a exclusão de suas informações de nossa base de dados a qualquer momento.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-navy mb-1">6. Alterações e Contato</h4>
+        <p>Esta política pode ser atualizada periodicamente. Recomendamos a consulta regular a esta página. Para esclarecer qualquer dúvida, entre em contato conosco em contato@taqna.com.br.</p>
+      </div>
+    </>
+  );
+
+  const termsContent = (
+    <>
+      <p>
+        Estes Termos de Uso regem o acesso e a utilização do site e das soluções de tecnologia e governança da TAQNA. Ao navegar por este site ou preencher nosso formulário de contato, você concorda integralmente com as condições estabelecidas abaixo.
+      </p>
+      <div>
+        <h4 className="font-bold text-navy mb-1">1. Uso do Conteúdo</h4>
+        <p>Todo o conteúdo disponível neste site — incluindo textos, imagens, logotipos, gráficos e códigos-fonte — é de propriedade exclusiva da TAQNA ou de seus licenciantes, sendo protegido pelas leis de propriedade intelectual. É proibida qualquer reprodução ou distribuição sem autorização prévia por escrito.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-navy mb-1">2. Cadastro e Formulários</h4>
+        <p>Ao preencher o formulário de contato, você se compromete a fornecer informações verdadeiras, precisas, completas e atualizadas. A TAQNA reserva-se o direito de recusar contatos ou solicitações que pareçam inadequadas ou falsas.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-navy mb-1">3. Responsabilidade</h4>
+        <p>O site é disponibilizado "como está". Embora busquemos garantir informações corretas e atualizadas, a TAQNA não se responsabiliza por eventuais erros temporários, imprecisões ou descontinuidades no funcionamento do site.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-navy mb-1">4. Links para Terceiros</h4>
+        <p>Nosso site pode conter links para serviços externos (como o LinkedIn). Não possuímos controle ou responsabilidade sobre as práticas, termos ou políticas de privacidade de sites de terceiros.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-navy mb-1">5. Modificações dos Termos</h4>
+        <p>A TAQNA poderá alterar estes Termos de Uso a qualquer momento, visando seu aprimoramento e adequação legal. As novas condições entrarão em vigor imediatamente após sua publicação no site.</p>
+      </div>
+      <div>
+        <h4 className="font-bold text-navy mb-1">6. Legislação e Foro</h4>
+        <p>Estes termos são regidos pelas leis da República Federativa do Brasil, e qualquer controvérsia decorrente deles será dirimida no foro da Comarca de Florianópolis, SC.</p>
+      </div>
+    </>
+  );
+
   return (
     <footer className="bg-white pt-24 pb-12 border-t border-navy/5">
       <div className="max-w-7xl mx-auto px-6">
@@ -411,16 +478,21 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-6">
               <span className="text-3xl font-bold tracking-tighter text-navy">TAQNA</span>
               <div className="h-4 w-[1px] bg-fend mx-2"></div>
-              <span className="text-sm uppercase tracking-[0.05em] text-fend font-semibold">Inteligência e Governança em Saúde</span>
+              <span className="text-sm uppercase tracking-[0.05em] text-fend-dark font-semibold">Operational Intelligence - Healthcare</span>
             </div>
             <p className="text-navy/60 font-light max-w-sm mb-8 leading-relaxed">
               Resgatar a essência do cuidado, garantindo que cada paciente receba o tratamento digno e seguro que merece.
             </p>
             <div className="flex gap-4">
               {/* Social icons placeholders */}
-              <div className="w-10 h-10 rounded-full bg-navy/5 border border-navy/10 flex items-center justify-center hover:bg-fend hover:text-white transition-all cursor-pointer">
+              <a 
+                href="https://www.linkedin.com/company/taqna/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-navy/5 border border-navy/10 flex items-center justify-center hover:bg-fend hover:text-white transition-all cursor-pointer"
+              >
                 <Linkedin size={18} className="text-fend hover:text-white" />
-              </div>
+              </a>
             </div>
           </div>
           
@@ -437,11 +509,35 @@ const Footer = () => {
         <div className="pt-12 border-t border-navy/5 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] uppercase tracking-[0.1em] text-navy/40 font-bold">
           <p>© 2024 TAQNA. Todos os direitos reservados.</p>
           <div className="flex gap-8">
-            <a href="#" className="hover:text-navy transition-colors">Privacidade</a>
-            <a href="#" className="hover:text-navy transition-colors">Termos de Uso</a>
+            <button 
+              onClick={() => setIsPrivacyOpen(true)} 
+              className="hover:text-navy transition-colors uppercase tracking-[0.1em] font-bold"
+            >
+              Privacidade
+            </button>
+            <button 
+              onClick={() => setIsTermsOpen(true)} 
+              className="hover:text-navy transition-colors uppercase tracking-[0.1em] font-bold"
+            >
+              Termos de Uso
+            </button>
           </div>
         </div>
       </div>
+
+      <DocumentModal 
+        isOpen={isPrivacyOpen} 
+        onClose={() => setIsPrivacyOpen(false)} 
+        title="Política de Privacidade" 
+        content={privacyContent} 
+      />
+
+      <DocumentModal 
+        isOpen={isTermsOpen} 
+        onClose={() => setIsTermsOpen(false)} 
+        title="Termos de Uso" 
+        content={termsContent} 
+      />
     </footer>
   );
 };
@@ -474,7 +570,7 @@ const ContactModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
               Deixe seus dados abaixo e um de nossos especialistas entrará em contato para entender como a TAQNA pode apoiar sua instituição.
             </p>
             <form 
-  action="https://formsubmit.co/contato@taqna.com.br" 
+  action="https://formsubmit.co/katia.weber@taqna.com.br" 
   method="POST"
   className="space-y-4"
 >
@@ -553,7 +649,7 @@ export default function App() {
               whileInView={{ opacity: 1 }}
               className="text-2xl md:text-3xl font-light text-navy italic leading-relaxed"
             >
-              "Colocamos a segurança do paciente em primeiro lugar e fortalecemos a autonomia das equipes."
+              "Levamos ordem para onde as decisões definem vidas."
             </motion.h2>
           </div>
         </section>
@@ -565,30 +661,17 @@ export default function App() {
 
         {/* Slogans Section */}
         <section className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-8">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                className="p-12 rounded-3xl bg-navy/5 border border-navy/10 flex flex-col justify-center items-center text-center"
-              >
-                <h3 className="text-3xl md:text-4xl text-navy leading-tight tracking-tight">
-                  <span className="font-light italic opacity-50">Menos discurso.</span> <br />
-                  <span className="font-semibold">Mais ação assistencial.</span>
-                </h3>
-              </motion.div>
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="p-12 rounded-3xl bg-fend/10 border border-fend/20 flex flex-col justify-center items-center text-center"
-              >
-                <h3 className="text-3xl md:text-4xl text-navy leading-tight tracking-tight">
-                  <span className="font-light italic opacity-50">Eficiência assistencial.</span> <br />
-                  <span className="font-semibold">Começa com ação.</span>
-                </h3>
-              </motion.div>
-            </div>
+          <div className="max-w-7xl mx-auto px-6 flex justify-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="p-12 rounded-3xl bg-fend/10 border border-fend/20 flex flex-col justify-center items-center text-center max-w-2xl w-full"
+            >
+              <h3 className="text-3xl md:text-4xl text-navy leading-tight tracking-tight">
+                <span className="font-light italic opacity-50">Eficiência assistencial.</span> <br />
+                <span className="font-semibold">Começa com Organização.</span>
+              </h3>
+            </motion.div>
           </div>
         </section>
 
@@ -606,10 +689,10 @@ export default function App() {
           </div>
           <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
             <h2 className="text-4xl md:text-6xl font-light text-navy mb-8">
-              Pronto para transformar sua equipe com <span className="font-bold">autonomia e governança?</span>
+              Pronto para transformar sua equipe com <span className="font-bold">tecnologia e governança?</span>
             </h2>
             <p className="text-xl text-navy/60 mb-12 font-light">
-              Hospitais, clínicas e operadoras de saúde: a TAQNA é o parceiro estratégico que viabiliza a excelência técnica e o cuidado humano.
+              Hospitais, a TAQNA é o parceiro estratégico que viabiliza a excelência técnica e o melhor cuidado humano.
             </p>
             <button 
               onClick={() => setIsContactModalOpen(true)}
