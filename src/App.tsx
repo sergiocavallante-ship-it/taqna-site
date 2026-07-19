@@ -19,7 +19,6 @@ import {
   Brain
 } from 'lucide-react';
 
-import sentrixImg from './Assets/Images/Sentrix.png';
 
 // --- Types ---
 interface Pillar {
@@ -154,46 +153,7 @@ const Hero = ({ onOpenContact }: { onOpenContact: () => void }) => {
   );
 };
 
-const StatsSection = () => {
-  return (
-    <section className="py-24 bg-navy text-white relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-fend rounded-full blur-3xl"></div>
-        <div className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-fend rounded-full blur-3xl"></div>
-      </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-light mb-12 leading-tight">
-              Excelência em saúde não é apenas um valor ético, é um <span className="font-bold italic">diferencial competitivo.</span>
-            </h2>
-          </div>
-          
-          <div className="flex flex-col gap-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm">
-                <Users className="text-fend mb-4" size={32} />
-                <p className="text-4xl font-bold mb-2">80%</p>
-                <p className="text-xs uppercase tracking-widest text-white/50 leading-relaxed">dos erros médicos graves vêm da falha de comunicação no plantão</p>
-              </div>
-              <div className="p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm sm:mt-12">
-                <Activity className="text-fend mb-4" size={32} />
-                <p className="text-4xl font-bold mb-2">65%</p>
-                <p className="text-xs uppercase tracking-widest text-white/50 leading-relaxed">dos eventos adversos têm a falha de comunicação como causa raiz.</p>
-              </div>
-            </div>
-            <div className="text-left sm:text-right px-2">
-              <span className="text-[10px] opacity-50 uppercase tracking-widest font-semibold block">
-                (Fonte: IHI - Institute for Healthcare Improvement)
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const PillarsDetail = () => {
   return (
@@ -207,93 +167,20 @@ const PillarsDetail = () => {
               <div className="absolute -right-20 -top-20 w-80 h-80 bg-fend/20 rounded-full blur-[100px] group-hover:bg-fend/30 transition-colors duration-700"></div>
               <div className="absolute -left-20 -bottom-20 w-60 h-60 bg-navy-light/20 rounded-full blur-[80px]"></div>
               
-              <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 h-full w-full">
-                <div className="flex-1">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur-sm">
-                    <Sparkles size={14} className="text-fend" />
-                    <span className="text-[10px] uppercase tracking-widest font-bold">Inovação Tecnológica</span>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-medium mb-6 leading-tight">
-                    Um <span className="text-fend font-semibold">Sistema completo e inovador</span> para a camada de <span className="text-fend font-semibold">Operação Assistencial</span> que captura, organiza, prioriza e dá visibilidade gerencial às informações na linha de frente do Hospital.
-                  </h3>
-                  
-                 </div>
-                
-                <div className="w-full md:flex-1 flex flex-col gap-4">
-                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transform hover:-translate-y-1 transition-all duration-300">
-                    <div className="flex items-start gap-4">
-                      <div className="p-2.5 rounded-xl bg-fend/10 text-fend mt-0.5">
-                        <Users size={20} />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-extrabold tracking-widest text-fend uppercase mb-1.5">SENTRIX</h4>
-                        <p className="text-base md:text-lg text-white/90 font-light leading-relaxed">
-                          Safety Huddle estruturado, passagem de plantão e áreas de apoio.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transform hover:-translate-y-1 transition-all duration-300">
-                    <div className="flex items-start gap-4">
-                      <div className="p-2.5 rounded-xl bg-fend/10 text-fend mt-0.5">
-                        <Activity size={20} />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-extrabold tracking-widest text-fend uppercase mb-1.5">VISUS</h4>
-                        <p className="text-base md:text-lg text-white/90 font-light leading-relaxed">
-                          Cenários de turno, gargalos, desvios de protocolo e picos de demanda.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md transform hover:-translate-y-1 transition-all duration-300">
-                    <div className="flex items-start gap-4">
-                      <div className="p-2.5 rounded-xl bg-fend/10 text-fend mt-0.5">
-                        <Brain size={20} />
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-extrabold tracking-widest text-fend uppercase mb-1.5">ARIS</h4>
-                        <p className="text-base md:text-lg text-white/90 font-light leading-relaxed">
-                          Padrões, score de performance, prova técnica e protocolos personalizados.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+              <div className="relative z-10 flex flex-col items-center justify-center text-center max-w-4xl mx-auto h-full w-full">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 mb-6 backdrop-blur-sm">
+                  <Sparkles size={14} className="text-fend" />
+                  <span className="text-[10px] uppercase tracking-widest font-bold">Inovação Tecnológica</span>
                 </div>
+                <h3 className="text-2xl md:text-4xl font-light mb-6 leading-relaxed">
+                  Um <span className="text-fend font-semibold">Sistema completo e inovador</span> para a camada de <span className="text-fend font-semibold">Operação Assistencial</span> que captura, organiza, prioriza e dá visibilidade gerencial às informações na linha de frente do Hospital.
+                </h3>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mt-8">
-          {/* Pillar 1 */}
-          <div className="lg:col-span-2 group">
-            <div className="relative h-full overflow-hidden rounded-3xl bg-navy p-12 text-white min-h-[400px] flex items-center">
-              <div className="relative z-10 max-w-2xl">
-                <h3 className="text-3xl md:text-4xl font-bold mb-6">Inteligência Operacional</h3>
-                <p className="text-white/80 mb-8 leading-relaxed text-lg md:text-xl">
-                  Até agora, a camada mais crítica da Operação Hospitalar Assistencial como <strong className="font-semibold text-white">Safety Huddle, passagem de plantão e decisões coletivas</strong> não dispunham de um sistema inteligente para auxiliá-la. A TAQNA chegou para suprir essa demanda com excelência, <strong className="font-semibold text-white">através do celular dos usuários</strong>. Uma ferramenta simples, segura e eficiente, disponível a todo momento na palma da mão dos profissionais e no <strong className="font-semibold text-white">dashboard gerencial</strong>.
-                </p>
 
-              </div>
-            </div>
-          </div>
-
-          {/* Pillar 4 */}
-          <div id="instituto" className="group">
-            <div className="relative h-full min-h-[400px] rounded-3xl overflow-hidden shadow-xl shadow-navy/5">
-              <img 
-                src={sentrixImg} 
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                alt="Médicos em plantão"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent group-hover:from-navy/20 transition-colors duration-500" />
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
@@ -657,7 +544,7 @@ export default function App() {
         <PillarsDetail />
 
 
-        <StatsSection />
+
 
         {/* Slogans Section */}
         <section className="py-24 bg-white">
