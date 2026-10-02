@@ -386,7 +386,7 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-sm uppercase tracking-widest mb-6">Contato</h4>
             <ul className="space-y-4 text-sm text-navy/60 font-light">
-              <li>contato@taqna.com.br</li>
+              <li>katia.weber@taqna.com.br</li>
               <li>Florianópolis, Santa Catarina, Brasil</li>
               <li className="text-navy font-bold">taqna.com.br</li>
             </ul>
